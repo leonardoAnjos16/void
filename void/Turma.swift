@@ -19,7 +19,9 @@ struct Turma: View {
                 }
                 
                 Section(header: Text("Tópicos")) {
-                    
+                    TopicCard(name: "Variáveis", from: Date.now, to: Date.now, progress: 0.98)
+                    TopicCard(name: "Condicionais e Lógica", from: Date.now, to: Date.now, progress: 0.74)
+                    TopicCard(name: "Loops", from: Date.now, to: Date.now, progress: 0.52)
                 }
                 
                 Section(header: Text("Alunos")) {
@@ -30,42 +32,6 @@ struct Turma: View {
                 }
             }
         }
-//        ScrollView {
-//            VStack {
-//                Text("Turma").bold()
-//
-//                HStack {
-//                    Text("Detalhes").padding()
-//                    Spacer()
-//                }
-//
-//                List {
-//                    DetailCard(title: "Nome", value: "Desenvolvimento iOS")
-//                    DetailCard(title: "Descrição", value: "Programação com Swift")
-//                    DetailCard(title: "Período", value: "2022.1")
-//                    DetailCard(title: "Código", value: "6X3DZ9")
-//                }
-//
-//                HStack {
-//                    Text("Tópicos").padding()
-//                    Spacer()
-//                }
-//
-//                HStack {
-//                    Text("Alunos").padding()
-//                    Spacer()
-//                }
-//
-//                List {
-//                    AlunoCard(name: "Kaue Ferreira Alves")
-//                    AlunoCard(name: "Yasmin Santos Araujo")
-//                    AlunoCard(name: "Gabrielle Sousa Dias")
-//                    AlunoCard(name: "Nicolas Lima Fernandes")
-//                }
-//
-//                Spacer()
-//            }
-//        }
     }
 }
 
@@ -89,9 +55,12 @@ struct TopicCard: View {
     var progress: Double
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(name)
-//            Text(from.description())
+            HStack {
+                ProgressView(value: progress)
+                Text("\(progress * 100, specifier: "%.2f")%")
+            }
         }
     }
 }
