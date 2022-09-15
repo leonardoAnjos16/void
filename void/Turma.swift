@@ -56,12 +56,27 @@ struct TopicCard: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(name)
+            Spacer()
+            Text(name).font(.system(size: 18))
+            Spacer()
+            
+            HStack {
+                Text(dateToString(date: from)).font(.system(size: 12)).foregroundColor(.gray)
+                Text("até").font(.system(size: 12)).foregroundColor(.gray)
+                Text(dateToString(date: to)).font(.system(size: 12)).foregroundColor(.gray)
+            }
+            
             HStack {
                 ProgressView(value: progress)
-                Text("\(progress * 100, specifier: "%.2f")%")
+                Text("\(progress * 100, specifier: "%.0f")%")
             }
         }
+    }
+    
+    func dateToString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM. YYYY"
+        return formatter.string(from: date)
     }
 }
 
