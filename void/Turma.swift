@@ -31,6 +31,7 @@ struct Turma: View {
                     StudentCard(name: "Nicolas Lima Fernandes")
                 }
             }
+            .listStyle(.sidebar)
         }
     }
 }
@@ -86,9 +87,11 @@ struct StudentCard: View {
     var body: some View {
         NavigationLink(destination: Student(name: name)) {
             HStack {
+                Image("Plant")
                 Text(name)
             }
         }
+        
     }
 }
 
