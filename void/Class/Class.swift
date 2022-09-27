@@ -7,21 +7,24 @@
 
 import SwiftUI
 
-struct Turma: View {
+struct Class: View {
+    @StateObject var classViewModel = ClassViewModel()
+    
     var body: some View {
         NavigationView {
             List {
                 Section(header: Text("Detalhes")) {
-                    DetailCard(title: "Nome", value: "Desenvolvimento iOS")
-                    DetailCard(title: "Descrição", value: "Programação com Swift")
-                    DetailCard(title: "Período", value: "2022.1")
-                    DetailCard(title: "Código", value: "6X3DZ9")
+                    DetailCard(title: "Nome", value: classViewModel.classroom.name)
+                    DetailCard(title: "Descrição", value: classViewModel.classroom.description)
+                    DetailCard(title: "Período", value: classViewModel.classroom.semester)
+                    DetailCard(title: "Código", value: classViewModel.classroom.code)
                 }
                 
                 Section(header: Text("Tópicos")) {
-                    TopicCard(name: "Variáveis", from: Date.now, to: Date.now, progress: 0.98)
-                    TopicCard(name: "Condicionais e Lógica", from: Date.now, to: Date.now, progress: 0.74)
-                    TopicCard(name: "Loops", from: Date.now, to: Date.now, progress: 0.52)
+                    ForEach(classViewModel.classroom.topics) { topic in
+                        TopicCard(name: topic.name, from: topic.from, to: topic.to, progress: topic.progress)
+                    }
+                    Button("Adicionar Tópico", action: {})
                 }
                 
                 Section(header: Text("Alunos")) {
@@ -32,6 +35,8 @@ struct Turma: View {
                 }
             }
             .listStyle(.sidebar)
+            .navigationTitle("Turma")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -97,6 +102,6 @@ struct StudentCard: View {
 
 struct Turma_Previews: PreviewProvider {
     static var previews: some View {
-        Turma()
+        Class()
     }
 }
