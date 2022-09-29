@@ -7,31 +7,30 @@
 
 import SwiftUI
 
-struct Class: View {
-    @StateObject var classViewModel = ClassViewModel()
+struct ClassroomView: View {
+    @StateObject var classroomViewModel = ClassroomViewModel()
     
     var body: some View {
         NavigationView {
             List {
                 Section(header: Text("Detalhes")) {
-                    DetailCard(title: "Nome", value: classViewModel.classroom.name)
-                    DetailCard(title: "Descrição", value: classViewModel.classroom.description)
-                    DetailCard(title: "Período", value: classViewModel.classroom.semester)
-                    DetailCard(title: "Código", value: classViewModel.classroom.code)
+                    DetailCard(title: "Nome", value: classroomViewModel.classroom.name)
+                    DetailCard(title: "Descrição", value: classroomViewModel.classroom.description)
+                    DetailCard(title: "Período", value: classroomViewModel.classroom.semester)
+                    DetailCard(title: "Código", value: classroomViewModel.classroom.code)
                 }
                 
                 Section(header: Text("Tópicos")) {
-                    ForEach(classViewModel.classroom.topics) { topic in
+                    ForEach(classroomViewModel.classroom.topics) { topic in
                         TopicCard(name: topic.name, from: topic.from, to: topic.to, progress: topic.progress)
                     }
                     Button("Adicionar Tópico", action: {})
                 }
                 
                 Section(header: Text("Alunos")) {
-                    StudentCard(name: "Kauê Ferreira Alves")
-                    StudentCard(name: "Yasmin Santos Araújo")
-                    StudentCard(name: "Gabrielle Sousa Dias")
-                    StudentCard(name: "Nicolas Lima Fernandes")
+                    ForEach(classroomViewModel.classroom.students) { student in
+                        StudentCard(name: student.name)
+                    }
                 }
             }
             .listStyle(.sidebar)
@@ -90,7 +89,7 @@ struct StudentCard: View {
     var name: String
     
     var body: some View {
-        NavigationLink(destination: Student(name: name)) {
+        NavigationLink(destination: StudentView(name: name)) {
             HStack {
                 Image("Plant")
                 Text(name)
@@ -102,6 +101,6 @@ struct StudentCard: View {
 
 struct Turma_Previews: PreviewProvider {
     static var previews: some View {
-        Class()
+        ClassroomView()
     }
 }

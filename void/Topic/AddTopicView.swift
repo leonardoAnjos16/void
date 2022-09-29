@@ -7,20 +7,21 @@
 
 import SwiftUI
 
-struct AddTopic: View {
+struct AddTopicView: View {
     @StateObject var topicViewModel = TopicViewModel()
     
     var body: some View {
         VStack {
             TextField("Nome", text: $topicViewModel.topic.name)
-            DatePicker(selection: $topicViewModel.topic.from, label: { Text("Começa") })
-            DatePicker(selection: $topicViewModel.topic.to, label: { Text("Termina") })
-        }
+            DatePicker(selection: $topicViewModel.topic.from, displayedComponents: .date, label: { Text("Começa") })
+            DatePicker(selection: $topicViewModel.topic.to, displayedComponents: .date, label: { Text("Termina") })
+            Spacer()
+        }.padding()
     }
 }
 
 struct AddTopic_Previews: PreviewProvider {
     static var previews: some View {
-        AddTopic()
+        AddTopicView()
     }
 }

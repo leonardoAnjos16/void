@@ -12,11 +12,12 @@ class Topic: Identifiable {
     var name: String
     var from: Date
     var to: Date
-    var progress: Double = 0.0
+    var progress: Double
     
-    init(name: String, from: Date, to: Date) {
+    init(name: String, from: Date, to: Date, progress: Double = 0.0) {
         self.name = name
         self.from = from
         self.to = to
+        self.progress = progress
     }
 }
