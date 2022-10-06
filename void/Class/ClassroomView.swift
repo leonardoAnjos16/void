@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ClassroomView: View {
+    @State var showAddTopic = false
     @StateObject var classroomViewModel = ClassroomViewModel()
     
     var body: some View {
@@ -24,7 +25,10 @@ struct ClassroomView: View {
                     ForEach(classroomViewModel.classroom.topics) { topic in
                         TopicCard(name: topic.name, from: topic.from, to: topic.to, progress: topic.progress)
                     }
-                    Button("Adicionar Tópico", action: {})
+                    
+                    Button("Adicionar Tópico") {
+                        showAddTopic = true
+                    }
                 }
                 
                 Section(header: Text("Alunos")) {
@@ -36,6 +40,10 @@ struct ClassroomView: View {
             .listStyle(.sidebar)
             .navigationTitle("Turma")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .sheet(isPresented: $showAddTopic) {
+            AddTopicView(isActive: $showAddTopic)
+                .environmentObject(classroomViewModel)
         }
     }
 }

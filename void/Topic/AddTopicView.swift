@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct AddTopicView: View {
+    @EnvironmentObject var classroomViewModel: ClassroomViewModel
     @StateObject var topicViewModel = TopicViewModel()
+    @Binding var isActive: Bool
     
     var body: some View {
         VStack {
             TextField("Nome", text: $topicViewModel.topic.name)
             DatePicker(selection: $topicViewModel.topic.from, displayedComponents: .date, label: { Text("Começa") })
             DatePicker(selection: $topicViewModel.topic.to, displayedComponents: .date, label: { Text("Termina") })
+            Button("Adicionar") {
+                classroomViewModel.addTopic(topic: topicViewModel.topic)
+                isActive = false
+            }
             Spacer()
         }.padding()
     }
@@ -22,6 +28,7 @@ struct AddTopicView: View {
 
 struct AddTopic_Previews: PreviewProvider {
     static var previews: some View {
-        AddTopicView()
+//        AddTopicView(isActive: true)
+        Text("Something")
     }
 }

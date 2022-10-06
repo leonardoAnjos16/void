@@ -10,7 +10,8 @@ import Foundation
 class ClassroomViewModel: ObservableObject {
     @Published var classroom = Classroom(name: "Desenvolvimento iOS", description: "Programação com Swift", semester: "2022.1")
     
-    func addTopic(name: String, from: Date, to: Date) {
-        classroom.topics.append(Topic(name: name, from: from, to: to))
+    func addTopic(topic: Topic) {
+        classroom.topics.append(topic)
+        objectWillChange.send()
     }
 }
