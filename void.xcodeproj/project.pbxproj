@@ -12,7 +12,10 @@
 		62741A1328C78B0200CF5E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62741A1228C78B0200CF5E8A /* Assets.xcassets */; };
 		62741A1628C78B0200CF5E8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62741A1528C78B0200CF5E8A /* Preview Assets.xcassets */; };
 		62741A1D28C78F3B00CF5E8A /* Turma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A1C28C78F3A00CF5E8A /* Turma.swift */; };
-		62741A1F28C7949500CF5E8A /* Feedbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A1E28C7949500CF5E8A /* Feedbacks.swift */; };
+		62741A1F28C7949500CF5E8A /* FeedbacksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A1E28C7949500CF5E8A /* FeedbacksView.swift */; };
+		BFA8046A28E5BB4500839D0E /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA8046928E5BB4500839D0E /* FeedbackView.swift */; };
+		BFCF7C6528EF1504001A38D7 /* FeedbacksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF7C6428EF1504001A38D7 /* FeedbacksViewModel.swift */; };
+		BFCF7C6728EF1510001A38D7 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF7C6628EF1510001A38D7 /* Feedback.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +25,10 @@
 		62741A1228C78B0200CF5E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62741A1528C78B0200CF5E8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		62741A1C28C78F3A00CF5E8A /* Turma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turma.swift; sourceTree = "<group>"; };
-		62741A1E28C7949500CF5E8A /* Feedbacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedbacks.swift; sourceTree = "<group>"; };
+		62741A1E28C7949500CF5E8A /* FeedbacksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbacksView.swift; sourceTree = "<group>"; };
+		BFA8046928E5BB4500839D0E /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
+		BFCF7C6428EF1504001A38D7 /* FeedbacksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbacksViewModel.swift; sourceTree = "<group>"; };
+		BFCF7C6628EF1510001A38D7 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +66,7 @@
 				62741A1228C78B0200CF5E8A /* Assets.xcassets */,
 				62741A1428C78B0200CF5E8A /* Preview Content */,
 				62741A1C28C78F3A00CF5E8A /* Turma.swift */,
-				62741A1E28C7949500CF5E8A /* Feedbacks.swift */,
+				BFCF7C6328EF139F001A38D7 /* Feedbacks */,
 			);
 			path = void;
 			sourceTree = "<group>";
@@ -71,6 +77,17 @@
 				62741A1528C78B0200CF5E8A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BFCF7C6328EF139F001A38D7 /* Feedbacks */ = {
+			isa = PBXGroup;
+			children = (
+				62741A1E28C7949500CF5E8A /* FeedbacksView.swift */,
+				BFA8046928E5BB4500839D0E /* FeedbackView.swift */,
+				BFCF7C6428EF1504001A38D7 /* FeedbacksViewModel.swift */,
+				BFCF7C6628EF1510001A38D7 /* Feedback.swift */,
+			);
+			path = Feedbacks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,8 +162,11 @@
 			files = (
 				62741A1D28C78F3B00CF5E8A /* Turma.swift in Sources */,
 				62741A1128C78AFD00CF5E8A /* ContentView.swift in Sources */,
-				62741A1F28C7949500CF5E8A /* Feedbacks.swift in Sources */,
+				BFA8046A28E5BB4500839D0E /* FeedbackView.swift in Sources */,
+				62741A1F28C7949500CF5E8A /* FeedbacksView.swift in Sources */,
 				62741A0F28C78AFD00CF5E8A /* voidApp.swift in Sources */,
+				BFCF7C6728EF1510001A38D7 /* Feedback.swift in Sources */,
+				BFCF7C6528EF1504001A38D7 /* FeedbacksViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
