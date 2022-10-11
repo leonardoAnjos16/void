@@ -18,7 +18,7 @@ struct ClassroomView: View {
                     DetailCard(title: "Nome", value: classroomViewModel.classroom.name)
                     DetailCard(title: "Descrição", value: classroomViewModel.classroom.description)
                     DetailCard(title: "Período", value: classroomViewModel.classroom.semester)
-                    DetailCard(title: "Código", value: classroomViewModel.classroom.code)
+                    DetailCard(title: "Código", value: classroomViewModel.classroom.code, editable: false)
                 }
                 
                 Section(header: Text("Tópicos")) {
@@ -51,12 +51,17 @@ struct ClassroomView: View {
 struct DetailCard: View {
     var title: String
     @State var value: String
+    var editable = true
     
     var body: some View {
         HStack {
             Text(title)
             Spacer()
-            TextField("", text: $value).fixedSize()
+            if editable {
+                TextField("", text: $value).fixedSize()
+            } else {
+                Text(value)
+            }
         }
     }
 }
