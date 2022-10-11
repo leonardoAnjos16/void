@@ -69,14 +69,26 @@ struct DetailCard: View {
 struct StudentCard: View {
     var student: Student
     
+    var plant: String {
+        var imageSize = "very-small"
+        if student.score > 0.75 {
+            imageSize = "big"
+        } else if student.score > 0.5 {
+            imageSize = "medium"
+        } else if student.score > 0.25 {
+            imageSize = "small"
+        }
+        
+        return "plant-\(imageSize)"
+    }
+    
     var body: some View {
         NavigationLink(destination: StudentView(student: student)) {
             HStack {
-                Image("Plant")
+                Image(plant)
                 Text(student.name)
             }
         }
-        
     }
 }
 

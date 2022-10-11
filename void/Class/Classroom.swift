@@ -13,9 +13,9 @@ class Classroom {
     var semester: String
     var code: String
     var topics: [Topic] = [
-        Topic(name: "Variáveis", from: Date.now, to: Date.now, progress: 0.98),
-        Topic(name: "Condicionais e Lógica", from: Date.now, to: Date.now, progress: 0.72),
-        Topic(name: "Loops", from: Date.now, to: Date.now, progress: 0.48)
+        Topic(name: "Variáveis", from: getDate("09/08/2022"), to: getDate("15/08/2022"), progress: 0.98),
+        Topic(name: "Condicionais e Lógica", from: getDate("16/08/2022"), to: getDate("22/08/2022"), progress: 0.72),
+        Topic(name: "Loops", from: getDate("23/08/2022"), to: getDate("29/08/2022"), progress: 0.48)
     ]
     var students: [Student] = [
         Student(name: "Kauê Ferreira Alves"),

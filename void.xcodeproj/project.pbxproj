@@ -22,6 +22,7 @@
 		62741A3028E4B8C200CF5E8A /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A2F28E4B8C100CF5E8A /* Student.swift */; };
 		62741A3228E4B99100CF5E8A /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A3128E4B99100CF5E8A /* StudentViewModel.swift */; };
 		62741A3428F5AB2C00CF5E8A /* TopicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A3328F5AB2C00CF5E8A /* TopicCard.swift */; };
+		62741A3728F5D32500CF5E8A /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A3628F5D32500CF5E8A /* utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		62741A2F28E4B8C100CF5E8A /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		62741A3128E4B99100CF5E8A /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
 		62741A3328F5AB2C00CF5E8A /* TopicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCard.swift; sourceTree = "<group>"; };
+		62741A3628F5D32500CF5E8A /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		62741A0D28C78AFD00CF5E8A /* void */ = {
 			isa = PBXGroup;
 			children = (
+				62741A3628F5D32500CF5E8A /* utils.swift */,
 				62741A2E28E4B65C00CF5E8A /* Student */,
 				62741A2928E33EFB00CF5E8A /* Topic */,
 				62741A2228DCA52600CF5E8A /* Class */,
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62741A3228E4B99100CF5E8A /* StudentViewModel.swift in Sources */,
+				62741A3728F5D32500CF5E8A /* utils.swift in Sources */,
 				62741A2428DCA58D00CF5E8A /* Classroom.swift in Sources */,
 				62741A1D28C78F3B00CF5E8A /* ClassroomView.swift in Sources */,
 				62741A2628DCA97100CF5E8A /* ClassroomViewModel.swift in Sources */,
