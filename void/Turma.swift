@@ -9,7 +9,13 @@ import SwiftUI
 
 struct Turma: View {
     var body: some View {
-        Text("Alunos")
+        NavigationView {
+            NavigationLink(destination: FeedbacksView()
+                            .navigationBarTitleDisplayMode(.inline))
+            {
+                Text("move to Feedbacks")
+            }
+        }
     }
 }
 

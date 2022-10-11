@@ -14,8 +14,7 @@ struct ContentView: View {
                 Image(systemName: "person.3.fill")
                 Text("Turma")
             }.tag(1)
-            
-            Feedbacks().tabItem {
+            FeedbacksView().tabItem {
                 Image(systemName: "message.fill")
                 Text("Feedbacks")
             }.tag(2)
