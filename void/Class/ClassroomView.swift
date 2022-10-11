@@ -23,7 +23,7 @@ struct ClassroomView: View {
                 
                 Section(header: Text("Tópicos")) {
                     ForEach(classroomViewModel.classroom.topics) { topic in
-                        TopicCard(name: topic.name, from: topic.from, to: topic.to, progress: topic.progress)
+                        TopicCard(topic: topic)
                     }
                     
                     Button("Adicionar Tópico") {
@@ -33,7 +33,7 @@ struct ClassroomView: View {
                 
                 Section(header: Text("Alunos")) {
                     ForEach(classroomViewModel.classroom.students) { student in
-                        StudentCard(name: student.name)
+                        StudentCard(student: student)
                     }
                 }
             }
@@ -61,46 +61,14 @@ struct DetailCard: View {
     }
 }
 
-struct TopicCard: View {
-    var name: String
-    var from: Date
-    var to: Date
-    var progress: Double
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Spacer()
-            Text(name).font(.system(size: 18))
-            Spacer()
-            
-            HStack {
-                Text(dateToString(date: from)).font(.system(size: 12)).foregroundColor(.gray)
-                Text("até").font(.system(size: 12)).foregroundColor(.gray)
-                Text(dateToString(date: to)).font(.system(size: 12)).foregroundColor(.gray)
-            }
-            
-            HStack {
-                ProgressView(value: progress)
-                Text("\(progress * 100, specifier: "%.0f")%")
-            }
-        }
-    }
-    
-    func dateToString(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMM. YYYY"
-        return formatter.string(from: date)
-    }
-}
-
 struct StudentCard: View {
-    var name: String
+    var student: Student
     
     var body: some View {
-        NavigationLink(destination: StudentView(name: name)) {
+        NavigationLink(destination: StudentView(student: student)) {
             HStack {
                 Image("Plant")
-                Text(name)
+                Text(student.name)
             }
         }
         

@@ -21,6 +21,7 @@
 		62741A2D28E33F8100CF5E8A /* TopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A2C28E33F8100CF5E8A /* TopicViewModel.swift */; };
 		62741A3028E4B8C200CF5E8A /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A2F28E4B8C100CF5E8A /* Student.swift */; };
 		62741A3228E4B99100CF5E8A /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A3128E4B99100CF5E8A /* StudentViewModel.swift */; };
+		62741A3428F5AB2C00CF5E8A /* TopicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A3328F5AB2C00CF5E8A /* TopicCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		62741A2C28E33F8100CF5E8A /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModel.swift; sourceTree = "<group>"; };
 		62741A2F28E4B8C100CF5E8A /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		62741A3128E4B99100CF5E8A /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
+		62741A3328F5AB2C00CF5E8A /* TopicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				62741A2A28E33F1100CF5E8A /* AddTopicView.swift */,
+				62741A3328F5AB2C00CF5E8A /* TopicCard.swift */,
 				62741A2728DCAB6000CF5E8A /* Topic.swift */,
 				62741A2C28E33F8100CF5E8A /* TopicViewModel.swift */,
 			);
@@ -197,6 +200,7 @@
 				62741A2628DCA97100CF5E8A /* ClassroomViewModel.swift in Sources */,
 				62741A3028E4B8C200CF5E8A /* Student.swift in Sources */,
 				62741A1128C78AFD00CF5E8A /* ContentView.swift in Sources */,
+				62741A3428F5AB2C00CF5E8A /* TopicCard.swift in Sources */,
 				62741A2D28E33F8100CF5E8A /* TopicViewModel.swift in Sources */,
 				62741A1F28C7949500CF5E8A /* Feedbacks.swift in Sources */,
 				62741A2B28E33F1100CF5E8A /* AddTopicView.swift in Sources */,

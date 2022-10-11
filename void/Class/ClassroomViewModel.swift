@@ -14,4 +14,8 @@ class ClassroomViewModel: ObservableObject {
         classroom.topics.append(topic)
         objectWillChange.send()
     }
+    
+    func getStudent(studentID: UUID) -> Student {
+        return classroom.students.first(where: { $0.id == studentID })!
+    }
 }

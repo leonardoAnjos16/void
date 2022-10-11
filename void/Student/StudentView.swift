@@ -8,15 +8,28 @@
 import SwiftUI
 
 struct StudentView: View {
-    var name: String
+    var student: Student
     
     var body: some View {
-        Text(name)
+        List {
+            Section(header: Text("Auto-avaliação")) {
+                ForEach(student.topics) { topic in
+                    TopicCard(topic: topic)
+                }
+            }
+            
+            Section(header: Text("Feedback")) {
+                
+            }
+        }
+        .listStyle(.sidebar)
+        .navigationTitle(student.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct Student_Previews: PreviewProvider {
     static var previews: some View {
-        StudentView(name: "Matheus Felipe")
+        StudentView(student: Student(name: "Matheus Felipe"))
     }
 }

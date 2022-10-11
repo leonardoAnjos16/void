@@ -15,8 +15,8 @@ struct AddTopicView: View {
     var body: some View {
         VStack {
             TextField("Nome", text: $topicViewModel.topic.name)
-            DatePicker(selection: $topicViewModel.topic.from, displayedComponents: .date, label: { Text("Começa") })
-            DatePicker(selection: $topicViewModel.topic.to, displayedComponents: .date, label: { Text("Termina") })
+            DatePicker(selection: $topicViewModel.topic.from, displayedComponents: .date, label: { Text("Começa") }).id(topicViewModel.topic.from)
+            DatePicker(selection: $topicViewModel.topic.to, displayedComponents: .date, label: { Text("Termina") }).id(topicViewModel.topic.to)
             Button("Adicionar") {
                 classroomViewModel.addTopic(topic: topicViewModel.topic)
                 isActive = false
