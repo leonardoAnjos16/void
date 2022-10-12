@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct StudentView: View {
-    @State private var speed = 50.0
-    @State private var isEditing = false
     @State private var selected = 1
-    @State private var feedback = "bbbbbbbbbbddbbbbb"
+    @State private var feedback = "hjsahjh"
     @State private var showingAlert = false
     
     func getFeedback(){
@@ -24,10 +22,10 @@ struct StudentView: View {
             VStack{
                 List {
                     Section(header: Text("Autoavaliação")){
-                        TopicAval(title: "Ideação", value:70)
-                        TopicAval(title: "Prototipação", value:30)
-                        TopicAval(title: "Validação", value:50)
-                        TopicAval(title: "Investigação", value:90)
+                        TopicAval(title: "Ideação", learn:70)
+                        TopicAval(title: "Prototipação", learn:30)
+                        TopicAval(title: "Validação", learn:50)
+                        TopicAval(title: "Investigação", learn:90)
                     }
                     Section(header: Text("Feedbacks")){
                         Picker(selection: $selected, label: Text("Tópico")) {
@@ -37,7 +35,7 @@ struct StudentView: View {
                                 Text("Investigação").tag(4)
                             }
                         TextField("Descreva aqui...", text: $feedback)
-                            .frame(height: 60)
+                            .frame(height: 80)
                         Button("Enviar", action:getFeedback)
                             .buttonStyle(.bordered)
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -65,16 +63,17 @@ struct StudentView_Previews: PreviewProvider {
 
 struct TopicAval: View {
     var title: String
-    @State var value: Double
+    @State var learn: Double
     
     var body: some View {
         HStack {
             Text(title)
-            Spacer()
+                .frame(width: 100, alignment: .leading)
             Slider(
-                value: $value,
+                value: $learn,
                 in: 0...100
             )
+            Text(String(format: "%.0f", learn)+"%")
         }
     }
 }
