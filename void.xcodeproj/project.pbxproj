@@ -13,6 +13,8 @@
 		62741A1628C78B0200CF5E8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62741A1528C78B0200CF5E8A /* Preview Assets.xcassets */; };
 		62741A1D28C78F3B00CF5E8A /* Turma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A1C28C78F3A00CF5E8A /* Turma.swift */; };
 		62741A1F28C7949500CF5E8A /* Feedbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A1E28C7949500CF5E8A /* Feedbacks.swift */; };
+		70A7FDF128E5D6B200A3DE6C /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7FDF028E5D6B200A3DE6C /* StudentViewModel.swift */; };
+		70A7FDF328E5DAEF00A3DE6C /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7FDF228E5DAEF00A3DE6C /* StudentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		62741A1528C78B0200CF5E8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		62741A1C28C78F3A00CF5E8A /* Turma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turma.swift; sourceTree = "<group>"; };
 		62741A1E28C7949500CF5E8A /* Feedbacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedbacks.swift; sourceTree = "<group>"; };
+		70A7FDF028E5D6B200A3DE6C /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
+		70A7FDF228E5DAEF00A3DE6C /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 		62741A0D28C78AFD00CF5E8A /* void */ = {
 			isa = PBXGroup;
 			children = (
+				70A7FDEF28E5D57300A3DE6C /* StudentMode */,
 				62741A0E28C78AFD00CF5E8A /* voidApp.swift */,
 				62741A1028C78AFD00CF5E8A /* ContentView.swift */,
 				62741A1228C78B0200CF5E8A /* Assets.xcassets */,
@@ -71,6 +76,23 @@
 				62741A1528C78B0200CF5E8A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		70A7FDEE28E5D3D600A3DE6C /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				70A7FDF028E5D6B200A3DE6C /* StudentViewModel.swift */,
+				70A7FDF228E5DAEF00A3DE6C /* StudentView.swift */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
+		70A7FDEF28E5D57300A3DE6C /* StudentMode */ = {
+			isa = PBXGroup;
+			children = (
+				70A7FDEE28E5D3D600A3DE6C /* Student */,
+			);
+			path = StudentMode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +165,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70A7FDF128E5D6B200A3DE6C /* StudentViewModel.swift in Sources */,
 				62741A1D28C78F3B00CF5E8A /* Turma.swift in Sources */,
 				62741A1128C78AFD00CF5E8A /* ContentView.swift in Sources */,
 				62741A1F28C7949500CF5E8A /* Feedbacks.swift in Sources */,
+				70A7FDF328E5DAEF00A3DE6C /* StudentView.swift in Sources */,
 				62741A0F28C78AFD00CF5E8A /* voidApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
