@@ -19,7 +19,9 @@ struct StudentView: View {
             }
             
             Section(header: Text("Feedback")) {
-                
+                ForEach(student.feedbacks) { feedback in
+                    FeedbackCard(feedback: feedback)
+                }
             }
         }
         .listStyle(.sidebar)

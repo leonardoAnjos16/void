@@ -15,6 +15,16 @@ class Student: Identifiable {
         Topic(name: "Condicionais e Lógica", from: getDate("16/08/2022"), to: getDate("22/08/2022"), progress: 0.22),
         Topic(name: "Loops", from: getDate("23/08/2022"), to: getDate("29/08/2022"), progress: 0.02),
     ]
+//    var feedbacks: [Feedback] = []
+    var feedbacks: [Feedback] = [
+        Feedback(
+            content: Message(
+                author: "Kaue Ferreira Alves",
+                message: "Me senti um pouco perdido. Acho que seria melhor se tivessem mais exemplos na aula",
+                time: getDate("28/08/2022")
+            )
+        )
+    ]
     
     init(name: String) {
         self.name = name
