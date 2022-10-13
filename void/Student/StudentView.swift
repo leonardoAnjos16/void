@@ -22,10 +22,10 @@ struct StudentView: View {
             VStack{
                 List {
                     Section(header: Text("Autoavaliação")) {
-                        TopicAvalView(title: "Ideação", learn: 70)
-                        TopicAvalView(title: "Prototipação", learn: 30)
-                        TopicAvalView(title: "Validação", learn: 50)
-                        TopicAvalView(title: "Investigação", learn: 90)
+                        TopicAvalView(title: "Ideação", learn: 0.7)
+                        TopicAvalView(title: "Prototipação", learn: 0.3)
+                        TopicAvalView(title: "Validação", learn: 0.5)
+                        TopicAvalView(title: "Investigação", learn: 0.9)
                     }
                     
                     Section(header: Text("Feedbacks")) {

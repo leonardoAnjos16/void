@@ -13,19 +13,15 @@ struct TopicAvalView: View {
     
     var body: some View {
         HStack {
-            Text(title)
-                .frame(width: 100, alignment: .leading)
-            Slider(
-                value: $learn,
-                in: 0...100
-            )
-            Text(String(format: "%.0f", learn)+"%")
+            Text(title).frame(width: 100, alignment: .leading)
+            Slider(value: $learn)
+            Text(String(format: "%.0f", learn * 100) + "%")
         }
     }
 }
 
 struct TopicAvalView_Previews: PreviewProvider {
     static var previews: some View {
-        TopicAvalView(title: "Prototipação", learn: 50)
+        TopicAvalView(title: "Prototipação", learn: 0.5)
     }
 }
