@@ -15,7 +15,6 @@ class Student: Identifiable {
         Topic(name: "Condicionais e Lógica", from: getDate("16/08/2022"), to: getDate("22/08/2022"), progress: 0.22),
         Topic(name: "Loops", from: getDate("23/08/2022"), to: getDate("29/08/2022"), progress: 0.02),
     ]
-//    var feedbacks: [Feedback] = []
     var feedbacks: [Feedback] = [
         Feedback(
             content: Message(

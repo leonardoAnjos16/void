@@ -83,7 +83,7 @@ struct StudentCard: View {
     }
     
     var body: some View {
-        NavigationLink(destination: StudentView(student: student)) {
+        NavigationLink(destination: StudentInfoView(student: student)) {
             HStack {
                 Image(plant)
                 Text(student.name)

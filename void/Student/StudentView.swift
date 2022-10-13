@@ -1,37 +1,62 @@
 //
-//  Student.swift
+//  StudentView.swift
 //  void
 //
-//  Created by Leonardo dos Anjos Silva on 15/09/22.
+//  Created by Heitor Santos on 29/09/22.
 //
 
 import SwiftUI
 
 struct StudentView: View {
-    var student: Student
+    @State private var selected = 1
+    @State private var feedback = ""
+    @State private var showingAlert = false
+    
+    func getFeedback() {
+        feedback = ""
+        showingAlert = true
+    }
     
     var body: some View {
-        List {
-            Section(header: Text("Auto-avaliação")) {
-                ForEach(student.topics) { topic in
-                    TopicCard(topic: topic)
+        NavigationView {
+            VStack{
+                List {
+                    Section(header: Text("Autoavaliação")) {
+                        TopicAvalView(title: "Ideação", learn: 70)
+                        TopicAvalView(title: "Prototipação", learn: 30)
+                        TopicAvalView(title: "Validação", learn: 50)
+                        TopicAvalView(title: "Investigação", learn: 90)
+                    }
+                    
+                    Section(header: Text("Feedbacks")) {
+                        Picker(selection: $selected, label: Text("Tópico")) {
+                            Text("Ideação").tag(1)
+                            Text("Prototipação").tag(2)
+                            Text("Validação").tag(3)
+                            Text("Investigação").tag(4)
+                        }
+                        
+                        TextField("Descreva aqui...", text: $feedback).frame(height: 80)
+                        Button("Enviar", action:getFeedback)
+                            .buttonStyle(.bordered)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .alert("Feedback enviado", isPresented: $showingAlert) {
+                                Button("OK", role: .cancel) {}
+                            }
+                        
+                    }
                 }
-            }
-            
-            Section(header: Text("Feedback")) {
-                ForEach(student.feedbacks) { feedback in
-                    FeedbackCard(feedback: feedback)
-                }
+                .listStyle(.sidebar)
+                .navigationTitle("Desenvolvimento iOS")
+                .navigationBarTitleDisplayMode(.inline)
+                
             }
         }
-        .listStyle(.sidebar)
-        .navigationTitle(student.name)
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct Student_Previews: PreviewProvider {
+struct StudentView_Previews: PreviewProvider {
     static var previews: some View {
-        StudentView(student: Student(name: "Matheus Felipe"))
+        StudentView()
     }
 }

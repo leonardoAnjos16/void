@@ -7,7 +7,7 @@
 
 import Foundation
 
-class StudentViewModel: ObservableObject {
+class StudentInfoViewModel: ObservableObject {
     @Published var student: Student
     
     init(student: Student) {

@@ -12,14 +12,14 @@
 		62741A1328C78B0200CF5E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62741A1228C78B0200CF5E8A /* Assets.xcassets */; };
 		62741A1628C78B0200CF5E8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62741A1528C78B0200CF5E8A /* Preview Assets.xcassets */; };
 		62741A1D28C78F3B00CF5E8A /* ClassroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A1C28C78F3A00CF5E8A /* ClassroomView.swift */; };
-		62741A2128D370CB00CF5E8A /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A2028D370CB00CF5E8A /* StudentView.swift */; };
+		62741A2128D370CB00CF5E8A /* StudentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A2028D370CB00CF5E8A /* StudentInfoView.swift */; };
 		62741A2428DCA58D00CF5E8A /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A2328DCA58D00CF5E8A /* Classroom.swift */; };
 		62741A2628DCA97100CF5E8A /* ClassroomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A2528DCA97100CF5E8A /* ClassroomViewModel.swift */; };
 		62741A2828DCAB6000CF5E8A /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A2728DCAB6000CF5E8A /* Topic.swift */; };
 		62741A2B28E33F1100CF5E8A /* AddTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A2A28E33F1100CF5E8A /* AddTopicView.swift */; };
 		62741A2D28E33F8100CF5E8A /* TopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A2C28E33F8100CF5E8A /* TopicViewModel.swift */; };
 		62741A3028E4B8C200CF5E8A /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A2F28E4B8C100CF5E8A /* Student.swift */; };
-		62741A3228E4B99100CF5E8A /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A3128E4B99100CF5E8A /* StudentViewModel.swift */; };
+		62741A3228E4B99100CF5E8A /* StudentInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A3128E4B99100CF5E8A /* StudentInfoViewModel.swift */; };
 		62741A3428F5AB2C00CF5E8A /* TopicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A3328F5AB2C00CF5E8A /* TopicCard.swift */; };
 		62741A3728F5D32500CF5E8A /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A3628F5D32500CF5E8A /* utils.swift */; };
 		62E9BA7F28F5F64000D5EF57 /* FeedbacksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9BA7E28F5F64000D5EF57 /* FeedbacksView.swift */; };
@@ -27,6 +27,8 @@
 		62E9BA8328F5F6BD00D5EF57 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9BA8228F5F6BD00D5EF57 /* Feedback.swift */; };
 		62E9BA8528F5F6E700D5EF57 /* FeedbacksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9BA8428F5F6E700D5EF57 /* FeedbacksViewModel.swift */; };
 		62E9BA8928F8417E00D5EF57 /* FeedbackCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9BA8828F8417E00D5EF57 /* FeedbackCard.swift */; };
+		62E9BA8B28F848BD00D5EF57 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9BA8A28F848BD00D5EF57 /* StudentView.swift */; };
+		62E9BA8D28F8494500D5EF57 /* TopicAvalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9BA8C28F8494500D5EF57 /* TopicAvalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,14 +38,14 @@
 		62741A1228C78B0200CF5E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62741A1528C78B0200CF5E8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		62741A1C28C78F3A00CF5E8A /* ClassroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomView.swift; sourceTree = "<group>"; };
-		62741A2028D370CB00CF5E8A /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
+		62741A2028D370CB00CF5E8A /* StudentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoView.swift; sourceTree = "<group>"; };
 		62741A2328DCA58D00CF5E8A /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
 		62741A2528DCA97100CF5E8A /* ClassroomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomViewModel.swift; sourceTree = "<group>"; };
 		62741A2728DCAB6000CF5E8A /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		62741A2A28E33F1100CF5E8A /* AddTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicView.swift; sourceTree = "<group>"; };
 		62741A2C28E33F8100CF5E8A /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModel.swift; sourceTree = "<group>"; };
 		62741A2F28E4B8C100CF5E8A /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
-		62741A3128E4B99100CF5E8A /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
+		62741A3128E4B99100CF5E8A /* StudentInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoViewModel.swift; sourceTree = "<group>"; };
 		62741A3328F5AB2C00CF5E8A /* TopicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCard.swift; sourceTree = "<group>"; };
 		62741A3628F5D32500CF5E8A /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		62E9BA7E28F5F64000D5EF57 /* FeedbacksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbacksView.swift; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		62E9BA8228F5F6BD00D5EF57 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		62E9BA8428F5F6E700D5EF57 /* FeedbacksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbacksViewModel.swift; sourceTree = "<group>"; };
 		62E9BA8828F8417E00D5EF57 /* FeedbackCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackCard.swift; sourceTree = "<group>"; };
+		62E9BA8A28F848BD00D5EF57 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
+		62E9BA8C28F8494500D5EF57 /* TopicAvalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicAvalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 				62741A3328F5AB2C00CF5E8A /* TopicCard.swift */,
 				62741A2728DCAB6000CF5E8A /* Topic.swift */,
 				62741A2C28E33F8100CF5E8A /* TopicViewModel.swift */,
+				62E9BA8C28F8494500D5EF57 /* TopicAvalView.swift */,
 			);
 			path = Topic;
 			sourceTree = "<group>";
@@ -128,9 +133,10 @@
 		62741A2E28E4B65C00CF5E8A /* Student */ = {
 			isa = PBXGroup;
 			children = (
-				62741A2028D370CB00CF5E8A /* StudentView.swift */,
+				62741A2028D370CB00CF5E8A /* StudentInfoView.swift */,
 				62741A2F28E4B8C100CF5E8A /* Student.swift */,
-				62741A3128E4B99100CF5E8A /* StudentViewModel.swift */,
+				62741A3128E4B99100CF5E8A /* StudentInfoViewModel.swift */,
+				62E9BA8A28F848BD00D5EF57 /* StudentView.swift */,
 			);
 			path = Student;
 			sourceTree = "<group>";
@@ -217,10 +223,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62741A3228E4B99100CF5E8A /* StudentViewModel.swift in Sources */,
+				62741A3228E4B99100CF5E8A /* StudentInfoViewModel.swift in Sources */,
 				62741A3728F5D32500CF5E8A /* utils.swift in Sources */,
 				62E9BA8528F5F6E700D5EF57 /* FeedbacksViewModel.swift in Sources */,
 				62741A2428DCA58D00CF5E8A /* Classroom.swift in Sources */,
+				62E9BA8D28F8494500D5EF57 /* TopicAvalView.swift in Sources */,
 				62E9BA7F28F5F64000D5EF57 /* FeedbacksView.swift in Sources */,
 				62741A1D28C78F3B00CF5E8A /* ClassroomView.swift in Sources */,
 				62741A2628DCA97100CF5E8A /* ClassroomViewModel.swift in Sources */,
@@ -230,9 +237,10 @@
 				62741A3428F5AB2C00CF5E8A /* TopicCard.swift in Sources */,
 				62741A2D28E33F8100CF5E8A /* TopicViewModel.swift in Sources */,
 				62741A2B28E33F1100CF5E8A /* AddTopicView.swift in Sources */,
+				62E9BA8B28F848BD00D5EF57 /* StudentView.swift in Sources */,
 				62E9BA8128F5F68F00D5EF57 /* FeedbackView.swift in Sources */,
 				62741A2828DCAB6000CF5E8A /* Topic.swift in Sources */,
-				62741A2128D370CB00CF5E8A /* StudentView.swift in Sources */,
+				62741A2128D370CB00CF5E8A /* StudentInfoView.swift in Sources */,
 				62E9BA8328F5F6BD00D5EF57 /* Feedback.swift in Sources */,
 				62741A0F28C78AFD00CF5E8A /* voidApp.swift in Sources */,
 			);
