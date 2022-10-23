@@ -29,6 +29,7 @@
 		62E9BA8928F8417E00D5EF57 /* FeedbackCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9BA8828F8417E00D5EF57 /* FeedbackCard.swift */; };
 		62E9BA8B28F848BD00D5EF57 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9BA8A28F848BD00D5EF57 /* StudentView.swift */; };
 		62E9BA8D28F8494500D5EF57 /* TopicAvalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9BA8C28F8494500D5EF57 /* TopicAvalView.swift */; };
+		70D066062904E46400181330 /* SwitchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D066052904E46400181330 /* SwitchScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		62E9BA8828F8417E00D5EF57 /* FeedbackCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackCard.swift; sourceTree = "<group>"; };
 		62E9BA8A28F848BD00D5EF57 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
 		62E9BA8C28F8494500D5EF57 /* TopicAvalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicAvalView.swift; sourceTree = "<group>"; };
+		70D066052904E46400181330 /* SwitchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				62741A2928E33EFB00CF5E8A /* Topic */,
 				62741A2228DCA52600CF5E8A /* Class */,
 				62741A0E28C78AFD00CF5E8A /* voidApp.swift */,
+				70D066052904E46400181330 /* SwitchScreenView.swift */,
 				62741A1028C78AFD00CF5E8A /* ContentView.swift */,
 				62741A3628F5D32500CF5E8A /* utils.swift */,
 				62741A1228C78B0200CF5E8A /* Assets.xcassets */,
@@ -229,6 +232,7 @@
 				62741A2428DCA58D00CF5E8A /* Classroom.swift in Sources */,
 				62E9BA8D28F8494500D5EF57 /* TopicAvalView.swift in Sources */,
 				62E9BA7F28F5F64000D5EF57 /* FeedbacksView.swift in Sources */,
+				70D066062904E46400181330 /* SwitchScreenView.swift in Sources */,
 				62741A1D28C78F3B00CF5E8A /* ClassroomView.swift in Sources */,
 				62741A2628DCA97100CF5E8A /* ClassroomViewModel.swift in Sources */,
 				62741A3028E4B8C200CF5E8A /* Student.swift in Sources */,

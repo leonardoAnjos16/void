@@ -11,7 +11,7 @@ import SwiftUI
 struct voidApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SwitchScreenView()
         }
     }
 }
