@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Classroom" representedClassName="Classroom" syncable="YES" codeGenerationType="class">
+        <attribute name="code" attributeType="String"/>
+        <attribute name="desc" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="location" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="order" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="semester" optional="YES" attributeType="String" defaultValueString=""/>
+        <relationship name="feedbacks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Feedback" inverseName="classroom" inverseEntity="Feedback"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="classroom" inverseEntity="Student"/>
+        <relationship name="topics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Topic" inverseName="classroom" inverseEntity="Topic"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="code"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Feedback" representedClassName="Feedback" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="message" attributeType="String"/>
+        <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="feedbacks" inverseEntity="Classroom"/>
+        <relationship name="student" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="feedbacks" inverseEntity="Student"/>
+    </entity>
+    <entity name="Student" representedClassName="Student" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="students" inverseEntity="Classroom"/>
+        <relationship name="feedbacks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Feedback" inverseName="student" inverseEntity="Feedback"/>
+        <relationship name="topics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StudentTopic" inverseName="student" inverseEntity="StudentTopic"/>
+    </entity>
+    <entity name="StudentTopic" representedClassName="StudentTopic" syncable="YES" codeGenerationType="class">
+        <attribute name="progress" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="student" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="topics" inverseEntity="Student"/>
+        <relationship name="topic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="studentsTopics" inverseEntity="Topic"/>
+    </entity>
+    <entity name="Topic" representedClassName="Topic" syncable="YES" codeGenerationType="class">
+        <attribute name="from" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="to" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="topics" inverseEntity="Classroom"/>
+        <relationship name="studentsTopics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StudentTopic" inverseName="topic" inverseEntity="StudentTopic"/>
+    </entity>
+</model>
