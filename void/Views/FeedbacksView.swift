@@ -2,13 +2,10 @@
 import SwiftUI
 
 struct FeedbacksView: View {
-    @EnvironmentObject var classroom: Classroom
+    @EnvironmentObject var feedbacksViewModel: FeedbacksViewModel
     @Environment(\.dismiss) private var dismiss
     
-    @StateObject var feedbacksViewModel = FeedbacksViewModel()
-    
-    var student: Student?
-    private var feedbacks: [Feedback] { feedbacksViewModel.feedbacks(classroom, from: student) }
+    private var feedbacks: [Feedback] { feedbacksViewModel.feedbacks }
     
     var body: some View {
         NavigationView {
@@ -35,13 +32,12 @@ struct FeedbacksView: View {
                     }
                 }
             }
-            .navigationBarHidden(student != nil)
         }
     }
 }
 
 struct FeedbackCard: View {
-    @StateObject var studentsViewModel = StudentsViewModel()
+    @EnvironmentObject var studentsViewModel: StudentsViewModel
     
     var feedback: Feedback
     var showStudent = true
@@ -49,27 +45,26 @@ struct FeedbackCard: View {
     var body: some View {
         HStack {
             if showStudent {
-                Image(studentsViewModel.plant(from: feedback.student!))
+                Image(studentsViewModel.plant(from: feedback.studentClassroom))
                     .padding(.trailing, 8)
             }
             
             VStack(alignment: .leading) {
                 HStack {
                     if showStudent {
-                        Text(feedback.student!.name!)
+                        Text(feedback.studentClassroom?.student?.name ?? "")
                             .fontWeight(.semibold)
-                        
                         Spacer()
                     }
                     
-                    Text(timePast(date: feedback.createdAt!))
+                    Text("\(feedback.createdAt, timeStyle: .short)")
                         .foregroundColor(Color.secondary)
-                        .fixedSize()
                 }
+                .font(.footnote)
                 .lineLimit(1)
                 .padding(.bottom, 1)
                 
-                Text(feedback.message!)
+                Text(feedback.message ?? "")
                     .font(.subheadline)
             }
         }

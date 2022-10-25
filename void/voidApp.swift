@@ -5,7 +5,7 @@ import SwiftUI
 struct voidApp: App {
     var body: some Scene {
         WindowGroup {
-            ClassroomsView()
+            SwitchView()
         }
     }
 }

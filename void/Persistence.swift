@@ -36,99 +36,87 @@ struct PersistenceController {
         if inMemory || UserDefaults.standard.bool(forKey: firstRunKey) {
             prePopulate()
             
-            UserDefaults.standard.set(false, forKey: firstRunKey)
+            if !inMemory {
+                UserDefaults.standard.set(false, forKey: firstRunKey)
+            }
         }
     }
     
     private func prePopulate() {
         var classrooms: [Classroom] = []
-        var classroom: Classroom
-        var topic: Topic
-        var student: Student
-        var feedback: Feedback
+        var classroom: Classroom?
+        var topic: Topic?
+        var student: Student?
+        var studentClassroom: StudentClassroom?
+        var feedback: Feedback?
         
-        classroom = new()
-        classroom.name = String(localized: "iOS Development")
-        classroom.desc = String(localized: "Programming in Swift")
-        classroom.semester = "2022.1"
-        classroom.location = "Apple Developer Academy"
-        classroom.code = "xzT3G3"
-        classroom.order = 0
-        classrooms.append(classroom)
+        func newClassroom(name: String, desc: String, semester: String, location: String, code: String) {
+            classroom = new()
+            classroom!.name = String(localized: String.LocalizationValue(name))
+            classroom!.desc = String(localized: String.LocalizationValue(desc))
+            classroom!.semester = semester
+            classroom!.location = location
+            classroom!.code = code
+            classroom!.order = Int16(classrooms.count)
+            
+            classrooms.append(classroom!)
+        }
         
-        topic = new()
-        topic.title = String(localized: "Variables")
-        topic.from = Date().advanced(by: -10 /* days */ * 86400).onlyDate
-        topic.to = Date().advanced(by: -3 * 86400).onlyDate
-        topic.classroom = classroom
+        func newTopic(title: String, fromDay: Int, toDay: Int) {
+            topic = new()
+            topic!.title = String(localized: String.LocalizationValue(title))
+            topic!.from = Date().advanced(by: TimeInterval(fromDay /* days */ * 86400)).onlyDate
+            topic!.to = Date().advanced(by: TimeInterval(toDay * 86400)).onlyDate
+            topic!.classroom = classroom!
+        }
         
-        topic = new()
-        topic.title = String(localized: "Condionals and Logic")
-        topic.from = Date().advanced(by: -2 * 86400).onlyDate
-        topic.to = Date().advanced(by: 5 * 86400).onlyDate
-        topic.classroom = classroom
+        func newStudent(name: String) {
+            student = new()
+            student!.name = name
+            
+            studentClassroom = new()
+            studentClassroom!.classroom = classroom!
+            studentClassroom!.student = student!
+            studentClassroom!.order = 0
+        }
         
-        topic = new()
-        topic.title = String(localized: "Loops")
-        topic.from = Date().advanced(by: 6 * 86400).onlyDate
-        topic.to = Date().advanced(by: 13 * 86400).onlyDate
-        topic.classroom = classroom
+        func newFeedback(message: String) {
+            feedback = new()
+            feedback!.createdAt = Date().advanced(by: -7 * 86400 + TimeInterval.random(in: 0...86400))
+            feedback!.message = String(localized: String.LocalizationValue(message))
+            feedback!.classroom = classroom!
+            feedback!.studentClassroom = studentClassroom!
+        }
         
-        student = new()
-        student.name = "Gabrielle Souza Dias"
-        student.classroom = classroom
         
-        student = new()
-        student.name = "Kauê Ferreira Alves"
-        student.classroom = classroom
+        newClassroom(name: "iOS Development", desc: "Programming in Swift",
+                     semester: "2022.1", location: "Apple Developer Academy",
+                     code: "xzT3G3")
+        newTopic(title: "Variables", fromDay: -10, toDay: -3)
+        newTopic(title: "Condionals and Logic", fromDay: -2, toDay: 5)
+        newTopic(title: "Loops", fromDay: 6, toDay: 13)
         
-        feedback = new()
-        feedback.createdAt = Date().advanced(by: -7 * 86400)
-        feedback.message = String(localized: "I felt a bit lost. I think it would be better if there were more examples in class")
-        feedback.classroom = classroom
-        feedback.student = student
+        newStudent(name: "Gabrielle Souza Dias")
         
-        student = new()
-        student.name = "Yasmin Santos Araújo"
-        student.classroom = classroom
+        newStudent(name: "Kauê Ferreira Alves")
+        newFeedback(message: "I felt a bit lost. I think it would be better if there were more examples in class")
         
-        student = new()
-        student.name = "Nicolas Lima Fernandes"
-        student.classroom = classroom
+        newStudent(name: "Yasmin Santos Araújo")
+        newStudent(name: "Nicolas Lima Fernandes")
         
-        classroom = new()
-        classroom.name = String(localized: "Design")
-        classroom.desc = ""
-        classroom.semester = "2022.1"
-        classroom.location = "Apple Developer Academy"
-        classroom.code = "FOAEQo"
-        classroom.order = 1
-        classrooms.append(classroom)
-        
-        student = new()
-        student.name = "Gabrielle Souza Dias"
-        student.classroom = classroom
-        
-        classroom = new()
-        classroom.name = String(localized: "Innovation")
-        classroom.desc = ""
-        classroom.semester = "2022.1"
-        classroom.location = "Apple Developer Academy"
-        classroom.code = "eVePGg"
-        classroom.order = 2
-        classrooms.append(classroom)
+        newClassroom(name: "Design", desc: "", semester: "2022.1",
+                     location: "Apple Developer Academy", code: "FOAEQo")
+        newClassroom(name: "Innovation", desc: "", semester: "2022.1",
+                     location: "Apple Developer Academy", code: "eVePGg")
         
         classrooms.forEach { classroom in
-            classroom.students?.compactMap({ $0 as? Student }).forEach { student in
-                classroom.topics?.compactMap({ $0 as? Topic }).forEach { topic in
+            (classroom.students as? Set<StudentClassroom> ?? []).forEach { studentClassroom in
+                (classroom.topics as? Set<Topic> ?? []).forEach { topic in
                     let studentTopic: StudentTopic = new()
                     
-                    studentTopic.student = student
+                    studentTopic.studentClassroom = studentClassroom
                     studentTopic.topic = topic
-                    studentTopic.progress = Int16.random(in: 0...100)
-                    
-                    topic.addToStudentsTopics(studentTopic)
-                    student.addToTopics(studentTopic)
+                    studentTopic.progress = Float(Int16.random(in: 0...100))
                 }
             }
         }
@@ -174,6 +162,8 @@ struct PersistenceController {
         do {
             if mainViewContext.hasChanges {
                 try mainViewContext.save()
+                
+                refresh()
             }
         } catch {
             if let nsError = error as NSError? {
@@ -184,6 +174,6 @@ struct PersistenceController {
     
     func rollback() {
         mainViewContext.rollback()
-        mainViewContext.refreshAllObjects()
+        refresh()
     }
 }

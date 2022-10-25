@@ -7,37 +7,37 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="order" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="semester" optional="YES" attributeType="String" defaultValueString=""/>
-        <relationship name="feedbacks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Feedback" inverseName="classroom" inverseEntity="Feedback"/>
-        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="classroom" inverseEntity="Student"/>
-        <relationship name="topics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Topic" inverseName="classroom" inverseEntity="Topic"/>
-        <uniquenessConstraints>
-            <uniquenessConstraint>
-                <constraint value="code"/>
-            </uniquenessConstraint>
-        </uniquenessConstraints>
+        <relationship name="feedbacks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Feedback" inverseName="classroom" inverseEntity="Feedback"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="StudentClassroom" inverseName="classroom" inverseEntity="StudentClassroom"/>
+        <relationship name="topics" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Topic" inverseName="classroom" inverseEntity="Topic"/>
     </entity>
     <entity name="Feedback" representedClassName="Feedback" syncable="YES" codeGenerationType="class">
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="message" attributeType="String"/>
-        <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="feedbacks" inverseEntity="Classroom"/>
-        <relationship name="student" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="feedbacks" inverseEntity="Student"/>
+        <relationship name="classroom" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="feedbacks" inverseEntity="Classroom"/>
+        <relationship name="studentClassroom" maxCount="1" deletionRule="Nullify" destinationEntity="StudentClassroom" inverseName="feedbacks" inverseEntity="StudentClassroom"/>
     </entity>
     <entity name="Student" representedClassName="Student" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String"/>
-        <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="students" inverseEntity="Classroom"/>
-        <relationship name="feedbacks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Feedback" inverseName="student" inverseEntity="Feedback"/>
-        <relationship name="topics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StudentTopic" inverseName="student" inverseEntity="StudentTopic"/>
+        <relationship name="classrooms" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="StudentClassroom" inverseName="student" inverseEntity="StudentClassroom"/>
+    </entity>
+    <entity name="StudentClassroom" representedClassName="StudentClassroom" syncable="YES" codeGenerationType="class">
+        <attribute name="order" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="classroom" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="students" inverseEntity="Classroom"/>
+        <relationship name="feedbacks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Feedback" inverseName="studentClassroom" inverseEntity="Feedback"/>
+        <relationship name="student" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="classrooms" inverseEntity="Student"/>
+        <relationship name="studentTopics" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="StudentTopic" inverseName="studentClassroom" inverseEntity="StudentTopic"/>
     </entity>
     <entity name="StudentTopic" representedClassName="StudentTopic" syncable="YES" codeGenerationType="class">
-        <attribute name="progress" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="student" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="topics" inverseEntity="Student"/>
-        <relationship name="topic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="studentsTopics" inverseEntity="Topic"/>
+        <attribute name="progress" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="studentClassroom" maxCount="1" deletionRule="Nullify" destinationEntity="StudentClassroom" inverseName="studentTopics" inverseEntity="StudentClassroom"/>
+        <relationship name="topic" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="studentsTopics" inverseEntity="Topic"/>
     </entity>
     <entity name="Topic" representedClassName="Topic" syncable="YES" codeGenerationType="class">
         <attribute name="from" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" attributeType="String"/>
         <attribute name="to" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="topics" inverseEntity="Classroom"/>
-        <relationship name="studentsTopics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StudentTopic" inverseName="topic" inverseEntity="StudentTopic"/>
+        <relationship name="classroom" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="topics" inverseEntity="Classroom"/>
+        <relationship name="studentsTopics" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="StudentTopic" inverseName="topic" inverseEntity="StudentTopic"/>
     </entity>
 </model>

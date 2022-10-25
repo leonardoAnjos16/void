@@ -2,21 +2,24 @@
 import SwiftUI
 
 struct StudentView: View {
-    @EnvironmentObject var studentsViewModel: StudentsViewModel
+    @EnvironmentObject var viewModel: StudentsViewModel
     @EnvironmentObject var topicsViewModel: TopicsViewModel
-    @StateObject var feedbacksViewModel = FeedbacksViewModel()
+    @EnvironmentObject var feedbacksViewModel: FeedbacksViewModel
+    @EnvironmentObject var studentClassroom: StudentClassroom
     
-    var student: Student
-    
-    private var topics: [Topic] { topicsViewModel.topics(from: student.classroom!) }
-    private var feedbacks: [Feedback] { feedbacksViewModel.feedbacks(student.classroom!, from: student) }
+    private var topics: [Topic] { topicsViewModel.topics }
+    private var feedbacks: [Feedback] {
+        feedbacksViewModel.feedbacks(from: studentClassroom.student)
+    }
     
     var body: some View {
         List {
             Section("Self-Assessment") {
                 ForEach(topics) { topic in
-                    TopicCard(topic: topic,
-                              progress: studentsViewModel.progress(from: student, topic))
+                    TopicCard(
+                        topic: topic,
+                        progress: viewModel.studentTopic(from: studentClassroom, topic).progress
+                    )
                 }
                 
                 if topics.isEmpty {
@@ -35,22 +38,26 @@ struct StudentView: View {
             }
         }
         .listStyle(.insetGrouped)
-        .navigationTitle(student.name!)
+        .navigationTitle(studentClassroom.student?.name ?? "")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct StudentCard: View {
     @EnvironmentObject var studentsViewModel: StudentsViewModel
-    var student: Student
+    
+    var studentClassroom: StudentClassroom
     
     var body: some View {
-        NavigationLink(destination: StudentView(student: student)) {
+        NavigationLink(destination: {
+            StudentView()
+                .environmentObject(studentClassroom)
+        }) {
             HStack {
-                Image(studentsViewModel.plant(from: student))
+                Image(studentsViewModel.plant(from: studentClassroom))
                     .padding(.trailing, 8)
                 
-                Text(student.name!)
+                Text(studentClassroom.student?.name ?? "")
             }
         }
     }

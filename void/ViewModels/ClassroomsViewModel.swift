@@ -50,7 +50,6 @@ class ClassroomsViewModel: ObservableObject {
         }
         
         persistence.save()
-        persistence.refresh()
     }
     
     func discard() {

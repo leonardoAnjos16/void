@@ -22,6 +22,10 @@
 		CEE48DC428F8F78B00215285 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE48DC328F8F78B00215285 /* Persistence.swift */; };
 		CEE48DC728F8F78C00215285 /* void.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEE48DC528F8F78C00215285 /* void.xcdatamodeld */; };
 		CEF53EFD28FBEC49004F541F /* ClassroomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF53EFC28FBEC49004F541F /* ClassroomsViewModel.swift */; };
+		CEF5CE6A2906352D00E47B90 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5CE692906352D00E47B90 /* SwitchView.swift */; };
+		CEF5CE6C290636C300E47B90 /* StudentClassroomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5CE6B290636C300E47B90 /* StudentClassroomsView.swift */; };
+		CEF5CE6E290636D800E47B90 /* StudentClassroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5CE6D290636D800E47B90 /* StudentClassroomView.swift */; };
+		CEF5CE7029064A7C00E47B90 /* StudentClassroomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5CE6F29064A7C00E47B90 /* StudentClassroomsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,10 @@
 		CEE48DC328F8F78B00215285 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		CEE48DC628F8F78C00215285 /* void.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = void.xcdatamodel; sourceTree = "<group>"; };
 		CEF53EFC28FBEC49004F541F /* ClassroomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomsViewModel.swift; sourceTree = "<group>"; };
+		CEF5CE692906352D00E47B90 /* SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
+		CEF5CE6B290636C300E47B90 /* StudentClassroomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassroomsView.swift; sourceTree = "<group>"; };
+		CEF5CE6D290636D800E47B90 /* StudentClassroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassroomView.swift; sourceTree = "<group>"; };
+		CEF5CE6F29064A7C00E47B90 /* StudentClassroomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassroomsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,24 +65,28 @@
 		CECDE79328FA06A400389E62 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEF5CE692906352D00E47B90 /* SwitchView.swift */,
 				CEE48DBC28F8F78700215285 /* ClassroomsView.swift */,
 				CE638A9C28FCA8A2001DD5E5 /* ClassroomView.swift */,
 				CE638AA828FCF8C1001DD5E5 /* FeedbacksView.swift */,
 				CE8568F02905B16E00BFC020 /* StudentView.swift */,
 				CE8568E52903A08900BFC020 /* TopicsView.swift */,
+				CEF5CE6B290636C300E47B90 /* StudentClassroomsView.swift */,
+				CEF5CE6D290636D800E47B90 /* StudentClassroomView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		CECDE79428FA06B600389E62 /* ViewsModels */ = {
+		CECDE79428FA06B600389E62 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				CEF53EFC28FBEC49004F541F /* ClassroomsViewModel.swift */,
 				CE8568F22905D3A900BFC020 /* FeedbacksViewModel.swift */,
+				CEF5CE6F29064A7C00E47B90 /* StudentClassroomsViewModel.swift */,
 				CE8568E329039C0300BFC020 /* StudentsViewModel.swift */,
 				CE8568E1290337CE00BFC020 /* TopicsViewModel.swift */,
 			);
-			path = ViewsModels;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		CEE48DAE28F8F78700215285 = {
@@ -97,12 +109,12 @@
 			isa = PBXGroup;
 			children = (
 				CE8568ED2905834400BFC020 /* Localizable.strings */,
-				CECDE79428FA06B600389E62 /* ViewsModels */,
+				CECDE79428FA06B600389E62 /* ViewModels */,
 				CECDE79328FA06A400389E62 /* Views */,
-				CEE48DBA28F8F78700215285 /* voidApp.swift */,
 				CEE48DBE28F8F78B00215285 /* Assets.xcassets */,
-				CEE48DC328F8F78B00215285 /* Persistence.swift */,
 				CEE48DC528F8F78C00215285 /* void.xcdatamodeld */,
+				CEE48DBA28F8F78700215285 /* voidApp.swift */,
+				CEE48DC328F8F78B00215285 /* Persistence.swift */,
 				CE8568E72904977100BFC020 /* utils.swift */,
 			);
 			path = void;
@@ -179,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF5CE6C290636C300E47B90 /* StudentClassroomsView.swift in Sources */,
 				CE8568E429039C0300BFC020 /* StudentsViewModel.swift in Sources */,
 				CEE48DC428F8F78B00215285 /* Persistence.swift in Sources */,
 				CE638AA928FCF8C1001DD5E5 /* FeedbacksView.swift in Sources */,
@@ -188,10 +201,13 @@
 				CE8568F12905B16F00BFC020 /* StudentView.swift in Sources */,
 				CEE48DBB28F8F78700215285 /* voidApp.swift in Sources */,
 				CEE48DC728F8F78C00215285 /* void.xcdatamodeld in Sources */,
+				CEF5CE6E290636D800E47B90 /* StudentClassroomView.swift in Sources */,
 				CEF53EFD28FBEC49004F541F /* ClassroomsViewModel.swift in Sources */,
+				CEF5CE6A2906352D00E47B90 /* SwitchView.swift in Sources */,
 				CE8568F32905D3A900BFC020 /* FeedbacksViewModel.swift in Sources */,
 				CE8568E62903A08900BFC020 /* TopicsView.swift in Sources */,
 				CE8568E2290337CE00BFC020 /* TopicsViewModel.swift in Sources */,
+				CEF5CE7029064A7C00E47B90 /* StudentClassroomsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

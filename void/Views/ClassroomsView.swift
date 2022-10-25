@@ -1,9 +1,10 @@
 
 import SwiftUI
-import CoreData
 
 struct ClassroomsView: View {
     @StateObject var viewModel = ClassroomsViewModel()
+    @Environment(\.dismiss) private var dismiss
+    
     @State private var presentNewClassroom = false
     
     var body: some View {
@@ -11,8 +12,7 @@ struct ClassroomsView: View {
             VStack(alignment: .leading) {
                 List {
                     ForEach(viewModel.classrooms) { classroom in
-                        ClassroomCard()
-                            .environmentObject(classroom)
+                        ClassroomCard(classroom: classroom, destination: ClassroomTabsView())
                     }
                     .onDelete(perform: viewModel.deleteClassrooms)
                     .onMove(perform: viewModel.moveClassrooms)
@@ -21,16 +21,31 @@ struct ClassroomsView: View {
             }
             .navigationBarTitle("Classrooms")
             .toolbar {
-                Button(action: { presentNewClassroom.toggle() }) {
-                    Label("New Classroom", systemImage: "plus")
-                }
-                .fullScreenCover(isPresented: $presentNewClassroom) {
-                    ClassroomView(isCreating: true)
-                        .environmentObject(viewModel.newClassroom())
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Label("Sign-in as", systemImage: "chevron.backward")
+                            .fontWeight(.semibold)
+                            .labelStyle(.iconOnly)
+                    }
                 }
                 
-                if !viewModel.classrooms.isEmpty {
-                    EditButton()
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button(action: { presentNewClassroom.toggle() }) {
+                        Label("New Classroom", systemImage: "plus")
+                    }
+                    .fullScreenCover(isPresented: $presentNewClassroom) {
+                        let classroom = viewModel.newClassroom()
+                        
+                        ClassroomView(isCreating: true)
+                            .environmentObject(classroom)
+                            .environmentObject(TopicsViewModel(classroom))
+                    }
+                    
+                    if !viewModel.classrooms.isEmpty {
+                        EditButton()
+                    }
                 }
             }
         }
@@ -38,23 +53,22 @@ struct ClassroomsView: View {
     }
 }
 
-struct ClassroomCard: View {
-    @EnvironmentObject var classroom: Classroom
+struct ClassroomCard<Destination: View>: View {
     @Environment(\.editMode) private var editMode
     
+    var classroom: Classroom
+    var destination: Destination
+    
     var body: some View {
-        NavigationLink(destination: {
-            ClassroomTabsView()
-                .environmentObject(classroom)
-        }) {
+        NavigationLink(destination: destination.environmentObject(classroom)) {
             VStack(alignment: .leading, spacing: 4) {
                 Text(classroom.name ?? "")
                 
                 Group {
                     Text(classroom.desc ?? "")
-                    Text("\(classroom.semester ?? "")" +
+                    Text((classroom.semester ?? "") +
                          (classroom.semester != "" && classroom.location != "" ? " · " : "") +
-                         "\(classroom.location ?? "")")
+                         (classroom.location ?? ""))
                 }
                 .lineLimit(1)
                 .foregroundColor(Color.secondary)
@@ -67,6 +81,8 @@ struct ClassroomCard: View {
 }
 
 struct ClassroomTabsView: View {
+    @EnvironmentObject var classroom: Classroom
+    
     var body: some View {
         TabView {
             ClassroomView().tabItem {
@@ -80,5 +96,8 @@ struct ClassroomTabsView: View {
             }.tag(2)
         }
         .navigationBarHidden(true)
+        .environmentObject(TopicsViewModel(classroom))
+        .environmentObject(StudentsViewModel(classroom))
+        .environmentObject(FeedbacksViewModel(classroom))
     }
 }

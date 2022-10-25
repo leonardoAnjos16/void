@@ -1,7 +1,9 @@
 "%@ to %@" = "%@ a %@";
 "Add" = "Adicionar";
+"Add Classroom" = "Adicionar Turma";
 "Add Topic..." = "Adicionar Tópico...";
 "Cancel" = "Cancelar";
+"Choose" = "Escolha";
 "Classroom" = "Turma";
 "Classrooms" = "Turmas";
 "Code" = "Código";
@@ -15,6 +17,7 @@
 "Location" = "Local";
 "Name" = "Nome";
 "New Classroom" = "Nova Turma";
+"New Feedback" = "Novo Feedback";
 "New Topic" = "Novo Tópico";
 "No Feedbacks" = "Nenhum Feedback";
 "No Topics" = "Nenhum Tópico";
@@ -22,11 +25,16 @@
 "Required" = "Obrigatório";
 "Save" = "Salvar";
 "Self-Assessment" = "Autoavaliação";
+"Send Feedback" = "Enviar Feedback";
 "Semester" = "Período";
+"Sign-in as" = "Entrar como";
 "Starts" = "Começa";
 "Students" = "Alunos";
+"Teacher" = "Professor";
 "Title" = "Título";
+"Topic" = "Tópico";
 "Topics" = "Tópicos";
+"Write you feedback here..." = "Escreva seu feedback aqui...";
 
 "iOS Development" = "Desenvolvimento iOS";
 "Programming in Swift" = "Programação em Swift";

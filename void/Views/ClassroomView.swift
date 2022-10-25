@@ -3,15 +3,13 @@ import SwiftUI
 
 struct ClassroomView: View {
     @EnvironmentObject var classroomsViewModel: ClassroomsViewModel
+    @EnvironmentObject var topicsViewModel: TopicsViewModel
+    @EnvironmentObject var studentsViewModel: StudentsViewModel
     @EnvironmentObject var classroom: Classroom
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.editMode) private var editMode
     
-    @StateObject var topicsViewModel = TopicsViewModel()
-    @StateObject var studentsViewModel = StudentsViewModel()
-    
-    var isEditing: Bool { editMode?.wrappedValue.isEditing ?? false }
     var isCreating: Bool = false
+    @State private var isEditing: Bool = false
     @State private var presentNewTopic = false
     
     @State private var name: String = ""
@@ -19,8 +17,6 @@ struct ClassroomView: View {
     @State private var semester: String = ""
     @State private var location: String = ""
     @State private var code: String = ""
-    private var topics: [Topic] { topicsViewModel.topics(from: classroom) }
-    private var students: [Student] { studentsViewModel.students(from: classroom) }
     
     private func viewInit() {
         name = classroom.name ?? ""
@@ -32,55 +28,53 @@ struct ClassroomView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    Section("Details") {
-                        DetailCard(label: "Name", value: $name, required: true)
-                        DetailCard(label: "Description", value: $desc)
-                        DetailCard(label: "Semester", value: $semester)
-                        DetailCard(label: "Location", value: $location)
-                        
-                        if !isCreating {
-                            DetailCard(label: "Code", value: $code, editable: false)
-                        }
-                    }
-                    .environment(\.editMode, Binding.constant(isEditing || isCreating
-                                                              ? EditMode.active
-                                                              : EditMode.inactive))
-                    
-                    Section("Topics") {
-                        ForEach(topics) { topic in
-                            TopicCard(topic: topic)
-                                .deleteDisabled(!isEditing && !isCreating)
-                        }
-                        .onDelete(perform: { offsets in
-                            topicsViewModel.delete(topics: offsets.map({ topics[$0] }))
-                        })
-                        
-                        if topics.isEmpty {
-                            Text("No Topics")
-                        }
-                        
-                        if isEditing || isCreating {
-                            Button("Add Topic...") { presentNewTopic.toggle() }
-                                .sheet(isPresented: $presentNewTopic) { NewTopicView() }
-                                .disabled(name.isEmpty)
-                        }
-                    }
+            List {
+                Section("Details") {
+                    DetailCard(label: "Name", value: $name, required: true)
+                    DetailCard(label: "Description", value: $desc)
+                    DetailCard(label: "Semester", value: $semester)
+                    DetailCard(label: "Location", value: $location)
                     
                     if !isCreating {
-                        Section("Students") {
-                            ForEach(students) { student in
-                                StudentCard(student: student)
-                            }
-                            
-                            if students.isEmpty {
-                                Text("No Students")
-                            }
+                        DetailCard(label: "Code", value: $code, editable: false)
+                    }
+                }
+                .environment(\.editMode, Binding.constant(isEditing || isCreating
+                                                          ? EditMode.active
+                                                          : EditMode.inactive))
+                
+                Section("Topics") {
+                    ForEach(topicsViewModel.topics) { topic in
+                        TopicCard(topic: topic)
+                            .deleteDisabled(!isEditing && !isCreating)
+                    }
+                    .onDelete(perform: topicsViewModel.deleteTopics)
+                    
+                    if topicsViewModel.topics.isEmpty {
+                        Text("No Topics")
+                    }
+                    
+                    if isEditing || isCreating {
+                        Button("Add Topic...") { presentNewTopic.toggle() }
+                            .sheet(isPresented: $presentNewTopic) { NewTopicView() }
+                            .disabled(name.isEmpty)
+                    }
+                }
+                
+                if !isCreating {
+                    Section("Students") {
+                        ForEach(studentsViewModel.studentClassrooms) { studentClassroom in
+                            StudentCard(studentClassroom: studentClassroom)
+                                .disabled(isEditing || isCreating)
+                        }
+                        
+                        if studentsViewModel.studentClassrooms.isEmpty {
+                            Text("No Students")
                         }
                     }
                 }
             }
+            .listStyle(.insetGrouped)
             .navigationTitle(!isCreating ? "Classroom" : "New Classroom")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -92,7 +86,7 @@ struct ClassroomView: View {
                             dismiss()
                         } else {
                             viewInit()
-                            editMode?.wrappedValue = .inactive
+                            isEditing.toggle()
                         }
                     } label: {
                         if !isEditing && !isCreating {
@@ -115,22 +109,19 @@ struct ClassroomView: View {
                             if isCreating {
                                 dismiss()
                             } else {
-                                editMode?.wrappedValue = .inactive
+                                isEditing.toggle()
                             }
                         }
                         .disabled(name.isEmpty)
                     } else {
                         Button("Edit") {
-                            editMode?.wrappedValue = .active
+                            isEditing.toggle()
                         }
                     }
                 }
             }
-            .listStyle(.insetGrouped)
         }
         .onAppear(perform: viewInit)
-        .environmentObject(topicsViewModel)
-        .environmentObject(studentsViewModel)
     }
 }
 
