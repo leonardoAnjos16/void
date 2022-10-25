@@ -12,11 +12,11 @@ struct SwitchScreenView: View {
         NavigationView {
             VStack{
                 List {
-                    NavigationLink(destination: ContentView()) {Text("Tela do Professor")}
-                    NavigationLink(destination: StudentView()) {Text("Tela do Aluno")}
+                    NavigationLink(destination: TeacherView()) { Text("Tela do Professor") }
+                    NavigationLink(destination: StudentView()) { Text("Tela do Aluno") }
                 }
                 .listStyle(.sidebar)
-                .navigationTitle("VOID")
+                .navigationTitle("Cultivate")
                 .navigationBarTitleDisplayMode(.inline)
                 
             }

@@ -21,15 +21,16 @@ struct ClassroomView: View {
                     DetailCard(title: "Código", value: classroomViewModel.classroom.code, editable: false)
                 }
                 
-                Section(header: Text("Tópicos")) {
+                Section(
+                    header: Text("Tópicos"),
+                    footer: Button("Adicionar Tópico", action: { showAddTopic = true })
+                        .foregroundColor(.blue)
+                ) {
                     ForEach(classroomViewModel.classroom.topics) { topic in
                         TopicCard(topic: topic)
                     }
-                    
-                    Button("Adicionar Tópico") {
-                        showAddTopic = true
-                    }
                 }
+                .listRowSeparator(.hidden)
                 
                 Section(header: Text("Alunos")) {
                     ForEach(classroomViewModel.classroom.students) { student in
@@ -60,7 +61,7 @@ struct DetailCard: View {
             if editable {
                 TextField("", text: $value).fixedSize()
             } else {
-                Text(value)
+                Text(value).foregroundColor(.gray)
             }
         }
     }

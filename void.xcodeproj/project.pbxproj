@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		62741A0F28C78AFD00CF5E8A /* voidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A0E28C78AFD00CF5E8A /* voidApp.swift */; };
-		62741A1128C78AFD00CF5E8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A1028C78AFD00CF5E8A /* ContentView.swift */; };
+		62741A1128C78AFD00CF5E8A /* TeacherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A1028C78AFD00CF5E8A /* TeacherView.swift */; };
 		62741A1328C78B0200CF5E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62741A1228C78B0200CF5E8A /* Assets.xcassets */; };
 		62741A1628C78B0200CF5E8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62741A1528C78B0200CF5E8A /* Preview Assets.xcassets */; };
 		62741A1D28C78F3B00CF5E8A /* ClassroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62741A1C28C78F3A00CF5E8A /* ClassroomView.swift */; };
@@ -35,7 +35,7 @@
 /* Begin PBXFileReference section */
 		62741A0B28C78AFD00CF5E8A /* void.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = void.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62741A0E28C78AFD00CF5E8A /* voidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voidApp.swift; sourceTree = "<group>"; };
-		62741A1028C78AFD00CF5E8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		62741A1028C78AFD00CF5E8A /* TeacherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherView.swift; sourceTree = "<group>"; };
 		62741A1228C78B0200CF5E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62741A1528C78B0200CF5E8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		62741A1C28C78F3A00CF5E8A /* ClassroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomView.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 				62741A2228DCA52600CF5E8A /* Class */,
 				62741A0E28C78AFD00CF5E8A /* voidApp.swift */,
 				70D066052904E46400181330 /* SwitchScreenView.swift */,
-				62741A1028C78AFD00CF5E8A /* ContentView.swift */,
+				62741A1028C78AFD00CF5E8A /* TeacherView.swift */,
 				62741A3628F5D32500CF5E8A /* utils.swift */,
 				62741A1228C78B0200CF5E8A /* Assets.xcassets */,
 				62741A1428C78B0200CF5E8A /* Preview Content */,
@@ -237,7 +237,7 @@
 				62741A2628DCA97100CF5E8A /* ClassroomViewModel.swift in Sources */,
 				62741A3028E4B8C200CF5E8A /* Student.swift in Sources */,
 				62E9BA8928F8417E00D5EF57 /* FeedbackCard.swift in Sources */,
-				62741A1128C78AFD00CF5E8A /* ContentView.swift in Sources */,
+				62741A1128C78AFD00CF5E8A /* TeacherView.swift in Sources */,
 				62741A3428F5AB2C00CF5E8A /* TopicCard.swift in Sources */,
 				62741A2D28E33F8100CF5E8A /* TopicViewModel.swift in Sources */,
 				62741A2B28E33F1100CF5E8A /* AddTopicView.swift in Sources */,
@@ -377,6 +377,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"void/Preview Content\"";
+				DEVELOPMENT_TEAM = KA743X9NP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -406,6 +407,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"void/Preview Content\"";
+				DEVELOPMENT_TEAM = KA743X9NP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

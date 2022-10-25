@@ -14,6 +14,7 @@ struct AddTopicView: View {
     
     var body: some View {
         VStack {
+            Text("Adicionar Tópico").bold()
             TextField("Nome", text: $topicViewModel.topic.name)
             DatePicker(selection: $topicViewModel.topic.from, displayedComponents: .date, label: { Text("Começa") }).id(topicViewModel.topic.from)
             DatePicker(selection: $topicViewModel.topic.to, displayedComponents: .date, label: { Text("Termina") }).id(topicViewModel.topic.to)
