@@ -9,11 +9,14 @@ struct SwitchView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink(destination: {
-                    ClassroomsView()
-                        .navigationBarHidden(true)
-                }) {
-                    Text("Teacher")
+                Section("Teachers") {
+                    NavigationLink(destination: {
+                        ClassroomsView()
+                            .navigationBarHidden(true)
+                    }) {
+                        Text("Felipe Soares")
+                    }
+                    .listRowBackground(Color(UIColor.secondarySystemBackground))
                 }
                 
                 Section("Students") {
@@ -25,9 +28,11 @@ struct SwitchView: View {
                         }) {
                             Text(student.name ?? "")
                         }
+                        .listRowBackground(Color(UIColor.secondarySystemBackground))
                     }
                 }
             }
+            .scrollContentBackground(.hidden)
             .navigationBarTitle("Sign-in as")
             .padding(.top, 16)
         }

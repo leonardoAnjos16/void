@@ -26,6 +26,17 @@ struct ClassroomView: View {
         code = classroom.code ?? ""
     }
     
+    func goBack() {
+            classroomsViewModel.discard()
+            
+            if !isEditing {
+                dismiss()
+            } else {
+                viewInit()
+                isEditing.toggle()
+            }
+    }
+    
     var body: some View {
         NavigationView {
             List {
@@ -80,14 +91,7 @@ struct ClassroomView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        classroomsViewModel.discard()
-                        
-                        if !isEditing {
-                            dismiss()
-                        } else {
-                            viewInit()
-                            isEditing.toggle()
-                        }
+                        goBack()
                     } label: {
                         if !isEditing && !isCreating {
                             Label("Go to Classrooms", systemImage: "chevron.backward")
@@ -106,11 +110,7 @@ struct ClassroomView: View {
                                                                 desc: desc, semester: semester,
                                                                 location: location)
                             
-                            if isCreating {
-                                dismiss()
-                            } else {
-                                isEditing.toggle()
-                            }
+                            goBack()
                         }
                         .disabled(name.isEmpty)
                     } else {
@@ -122,6 +122,17 @@ struct ClassroomView: View {
             }
         }
         .onAppear(perform: viewInit)
+        .highPriorityGesture(DragGesture(minimumDistance: 25, coordinateSpace: .local)
+            .onEnded { value in
+                if abs(value.translation.height) < abs(value.translation.width) {
+                    if abs(value.translation.width) > 50.0 {
+                        if value.translation.width > 0 {
+                            goBack()
+                        }
+                    }
+                }
+            }
+        )
     }
 }
 

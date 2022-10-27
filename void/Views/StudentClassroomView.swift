@@ -9,8 +9,10 @@ struct StudentClassroomView: View {
     @EnvironmentObject var studentClassroom: StudentClassroom
  
     @State private var feedbackMessage: String = ""
-
-    private var feedbacks: [Feedback] { Array(studentClassroom.feedbacks as? Set<Feedback> ?? []) }
+    
+    private var feedbacks: [Feedback] {
+        feedbacksViewModel.feedbacks(from: studentClassroom.student)
+    }
     
     var body: some View {
         List {
@@ -63,7 +65,7 @@ struct TopicSelfAssessment: View {
                 .font(.footnote)
             
             HStack {
-                Slider(value: $studentTopic.progress, in: 0...100, step: 1) { isEditing in
+                Slider(value: $studentTopic.progress, in: 0...100, step: 5) { isEditing in
                     if !isEditing {
                         studentsViewModel.save()
                     }

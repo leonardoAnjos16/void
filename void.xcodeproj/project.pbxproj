@@ -29,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B754692D2908290900420755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE638A9C28FCA8A2001DD5E5 /* ClassroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomView.swift; sourceTree = "<group>"; };
 		CE638AA828FCF8C1001DD5E5 /* FeedbacksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbacksView.swift; sourceTree = "<group>"; };
 		CE8568E1290337CE00BFC020 /* TopicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewModel.swift; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 		CEE48DB928F8F78700215285 /* void */ = {
 			isa = PBXGroup;
 			children = (
+				B754692D2908290900420755 /* Info.plist */,
 				CE8568ED2905834400BFC020 /* Localizable.strings */,
 				CECDE79428FA06B600389E62 /* ViewModels */,
 				CECDE79328FA06A400389E62 /* Views */,
@@ -351,10 +353,11 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = void/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Cultivate;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -382,10 +385,11 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = void/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Cultivate;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

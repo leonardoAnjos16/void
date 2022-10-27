@@ -70,7 +70,7 @@ struct PersistenceController {
             topic!.classroom = classroom!
         }
         
-        func newStudent(name: String) {
+        func newStudent(_ name: String, topicsProgress: [Int]) {
             student = new()
             student!.name = name
             
@@ -78,48 +78,37 @@ struct PersistenceController {
             studentClassroom!.classroom = classroom!
             studentClassroom!.student = student!
             studentClassroom!.order = 0
+            
+            (classroom!.topics as? Set<Topic> ?? [])
+                .sorted(by: {$0.from! < $1.from!})
+                .enumerated().forEach { (i, topic) in
+                    let studentTopic: StudentTopic = new()
+                    
+                    studentTopic.studentClassroom = studentClassroom
+                    studentTopic.topic = topic
+                    studentTopic.progress = Float(topicsProgress[i])
+                }
         }
         
-        func newFeedback(message: String) {
+        func newFeedback(message: String, day: Int = Int.random(in: -7...7), date: Date? = nil) {
             feedback = new()
-            feedback!.createdAt = Date().advanced(by: -7 * 86400 + TimeInterval.random(in: 0...86400))
+            feedback!.createdAt = (date != nil ? date
+                                   : Date().advanced(by: TimeInterval(day * 86400) + TimeInterval.random(in: 0...86400)))
             feedback!.message = String(localized: String.LocalizationValue(message))
             feedback!.classroom = classroom!
             feedback!.studentClassroom = studentClassroom!
         }
         
         
-        newClassroom(name: "iOS Development", desc: "Programming in Swift",
-                     semester: "2022.1", location: "Apple Developer Academy",
-                     code: "xzT3G3")
-        newTopic(title: "Variables", fromDay: -10, toDay: -3)
-        newTopic(title: "Condionals and Logic", fromDay: -2, toDay: 5)
-        newTopic(title: "Loops", fromDay: 6, toDay: 13)
+        newClassroom(name: "iOS Development", desc: "Programming in Swift", semester: "2022.1",
+                     location: "Apple Developer Academy", code: "xzT3G3")
+        newTopic(title: "Variables", fromDay: -18, toDay: -11)
+        newTopic(title: "Condionals and Logic", fromDay: -12, toDay: -5)
+        newTopic(title: "Loops", fromDay: -4, toDay: 3)
         
-        newStudent(name: "Gabrielle Souza Dias")
-        
-        newStudent(name: "Kauê Ferreira Alves")
-        newFeedback(message: "I felt a bit lost. I think it would be better if there were more examples in class")
-        
-        newStudent(name: "Yasmin Santos Araújo")
-        newStudent(name: "Nicolas Lima Fernandes")
-        
-        newClassroom(name: "Design", desc: "", semester: "2022.1",
-                     location: "Apple Developer Academy", code: "FOAEQo")
-        newClassroom(name: "Innovation", desc: "", semester: "2022.1",
-                     location: "Apple Developer Academy", code: "eVePGg")
-        
-        classrooms.forEach { classroom in
-            (classroom.students as? Set<StudentClassroom> ?? []).forEach { studentClassroom in
-                (classroom.topics as? Set<Topic> ?? []).forEach { topic in
-                    let studentTopic: StudentTopic = new()
-                    
-                    studentTopic.studentClassroom = studentClassroom
-                    studentTopic.topic = topic
-                    studentTopic.progress = Float(Int16.random(in: 0...100))
-                }
-            }
-        }
+        newStudent("Brenda Alves", topicsProgress: [90, 75, 0])
+        newStudent("Nicolas Lima Fernandes", topicsProgress: [85, 30, 0])
+        newStudent("Yasmin Santos Araújo", topicsProgress: [100, 90, 75])
         
         save()
     }

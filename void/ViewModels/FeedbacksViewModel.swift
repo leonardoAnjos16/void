@@ -17,8 +17,9 @@ class FeedbacksViewModel: ObservableObject {
     }
     
     func feedbacks(from student: Student?) -> [Feedback] {
-        return Array((student?.classrooms as? Set<StudentClassroom> ?? []).first { $0.classroom?.objectID == classroom.objectID
-        }?.feedbacks as? Set<Feedback> ?? []).sorted {
+        return Array((student?.classrooms as? Set<StudentClassroom> ?? [])
+            .first { $0.classroom?.objectID == classroom.objectID }?.feedbacks as? Set<Feedback> ?? [])
+        .sorted {
             $0.createdAt! > $1.createdAt!
         }
     }

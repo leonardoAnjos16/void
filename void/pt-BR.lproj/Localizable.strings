@@ -31,6 +31,7 @@
 "Starts" = "Começa";
 "Students" = "Alunos";
 "Teacher" = "Professor";
+"Teachers" = "Professores";
 "Title" = "Título";
 "Topic" = "Tópico";
 "Topics" = "Tópicos";
@@ -43,4 +44,3 @@
 "Variables" = "Variáveis";
 "Condionals and Logic" = "Condicionais e Lógica";
 "Loops" = "Laços de Repetição";
-"I felt a bit lost. I think it would be better if there were more examples in class" = "Me senti um pouco perdido. Acho que seria melhor se tivessem mais exemplos na aula.";

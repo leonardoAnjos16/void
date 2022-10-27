@@ -38,20 +38,33 @@ class StudentsViewModel: ObservableObject {
     }
     
     func score(from studentClassroom: StudentClassroom) -> Double {
-        var score = 0.0, totalWeight = 0.0
+        var totalScore = 0.0, totalWeight = 0.0
         
         (studentClassroom.studentTopics as? Set<StudentTopic> ?? []).forEach { studentTopic in
-            // FIXME: -
-            let a = Date.now.timeIntervalSince(studentTopic.topic!.from!)
-            let b = studentTopic.topic!.to!.timeIntervalSince(studentTopic.topic!.from!)
+            var topicScore = 0.0, topicWeight = 1.0
             
-            let weight = a / b
+            let topicProgress = Double(studentTopic.progress / 100)
+            let topicDuration = studentTopic.topic!.to!.timeIntervalSince(studentTopic.topic!.from!)
+            let timeSinceFrom = Date.now.timeIntervalSince(studentTopic.topic!.from!)
+            let timeSinceTo = Date.now.timeIntervalSince(studentTopic.topic!.to!)
             
-            score += Double(studentTopic.progress) * weight
-            totalWeight += weight
+            if timeSinceFrom < 0 {
+                if topicProgress > 0 {
+                    topicScore = min(topicProgress * (-1.5 / timeSinceFrom / topicDuration), 3.0)
+                } else {
+                    topicWeight = 0.0
+                }
+            } else if timeSinceTo < 0 {
+                topicScore = min(topicProgress * (1 / (timeSinceFrom / topicDuration)), 2.0)
+            } else {
+                topicScore = topicProgress - (0.5 * (1.0 - topicProgress) * min(timeSinceTo / topicDuration, 1.0))
+            }
+            
+            totalScore += topicScore
+            totalWeight += topicWeight
         }
         
-        return score / totalWeight
+        return min(totalScore / totalWeight, 1.0)
     }
     
     func studentTopic(from studentClassroom: StudentClassroom, _ topic: Topic) -> StudentTopic {
